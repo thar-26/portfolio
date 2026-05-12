@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tharun Kumar Marada — AI & ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #534AB7;
+  --accent-light: rgba(83,74,183,0.12);
+  --accent-border: rgba(83,74,183,0.3);
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --text-dim: #374151;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.15);
+  --card-bg: rgba(255,255,255,0.03);
+  --card-bg-hover: rgba(83,74,183,0.06);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000000;
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 4rem;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text-primary); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 4rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(83,74,183,0.08) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-secondary);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  width: fit-content;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.hero-title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1.02;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+}
+.btn-primary {
+  background: #ffffff;
+  color: #000000;
+  padding: 13px 30px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: all 0.2s;
+}
+.btn-primary:hover {
+  background: #f3f4f6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255,255,255,0.1);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 13px 30px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.35); }
+
+.hero-stats {
+  display: flex;
+  gap: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+.stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 6rem 4rem;
+}
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 4rem;
+}
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.8rem;
+}
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 6px;
+}
+.section-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.6rem;
+  transition: all 0.25s;
+  position: relative;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+.project-card:hover {
+  border-color: var(--accent-border);
+  background: var(--card-bg-hover);
+  transform: translateY(-3px);
+}
+.project-card.featured {
+  border-color: rgba(83,74,183,0.25);
+  background: rgba(83,74,183,0.04);
+}
+.flagship-badge {
+  display: inline-block;
+  background: rgba(83,74,183,0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(83,74,183,0.25);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+.project-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.project-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.2rem;
+}
+.tag {
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text-dim);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.proj-link {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.proj-link:hover { color: var(--text-primary); }
+.proj-arrow {
+  font-size: 13px;
+  color: var(--text-dim);
+  transition: all 0.2s;
+}
+.project-card:hover .proj-arrow {
+  color: #a78bfa;
+  transform: translate(2px, -2px);
+}
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.skill-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem;
+}
+.skill-category {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.skill-pill {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.03);
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── CONTACT ── */
+.contact-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-bottom: 1rem;
+}
+.contact-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 22px;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.contact-link:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-text {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .hero { padding: 7rem 1.5rem 3rem; }
+  section { padding: 4rem 1.5rem; }
+  .divider { margin: 0 1.5rem; }
+  .hero-title { letter-spacing: -2px; }
+  .hero-stats { gap: 2rem; }
+  footer { padding: 1.5rem; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Tharun Kumar Marada</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">Available for opportunities · Karlskrona, Sweden</div>
+  <h1 class="hero-title">Building AI systems<br>that actually <em>ship.</em></h1>
+  <p class="hero-sub">MSc Computer Science student with 1.5 years of professional experience. I build LLM applications, agentic pipelines, and data-driven tools — end to end, from raw data to deployed product.</p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn-primary">View my work</a>
+    <a href="#contact" class="btn-secondary">Get in touch</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Projects shipped</div>
+    </div>
+    <div>
+      <div class="stat-num">1.5yr</div>
+      <div class="stat-label">Industry experience</div>
+    </div>
+    <div>
+      <div class="stat-num">47K+</div>
+      <div class="stat-label">Players analysed</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-eyebrow">Work</div>
+  <div class="section-title">Projects</div>
+  <div class="section-sub">Real projects, real data, real deployments</div>
+  <div class="projects-grid">
+
+    <a href="https://github.com/thar-26/multi-agent-research" target="_blank" class="project-card featured">
+      <div class="flagship-badge">Flagship</div>
+      <div class="project-title">Multi-Agent Research Generator</div>
+      <div class="project-desc">4 AI agents collaborate to search the web, extract insights, and write a downloadable PDF report on any topic in under 90 seconds. Built with LangGraph for agent orchestration.</div>
+      <div class="project-tags">
+        <span class="tag">LangGraph</span>
+        <span class="tag">LLaMA 3</span>
+        <span class="tag">Tavily</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">ReportLab</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://github.com/thar-26/multi-agent-research" target="_blank" class="proj-link">View on GitHub</a>
+        <span class="proj-arrow">↗</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/thar-26/football-scouting-analytics" target="_blank" class="project-card featured">
+      <div class="flagship-badge">Flagship</div>
+      <div class="project-title">Football Scouting Dashboard</div>
+      <div class="project-desc">FCM-style player scouting across 47K+ players and 1.8M appearances. Surfaces undervalued talent, finds similar players in cheaper markets, and generates automated scouting reports.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Pandas</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://github.com/thar-26/football-scouting-analytics" target="_blank" class="proj-link">View on GitHub</a>
+        <span class="proj-arrow">↗</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/thar-26/RAG-chatbot" target="_blank" class="project-card">
+      <div class="project-title">Document Intelligence RAG</div>
+      <div class="project-desc">Ask natural language questions to any PDF. Returns grounded, cited answers in under 3 seconds using vector search and LLaMA 3. Works on any document — no reconfiguration needed.</div>
+      <div class="project-tags">
+        <span class="tag">LangChain</span>
+        <span class="tag">ChromaDB</span>
+        <span class="tag">RAG</span>
+        <span class="tag">Streamlit</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://github.com/thar-26/RAG-chatbot" target="_blank" class="proj-link">View on GitHub</a>
+        <span class="proj-arrow">↗</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/thar-26/ids-intrusion-detection" target="_blank" class="project-card">
+      <div class="project-title">LLM Intrusion Detection System</div>
+      <div class="project-desc">99.73% F1 on 25K real network connections with 0.43% false positive rate. LLaMA 3 explains each prediction in plain English — not just a label, but a reason.</div>
+      <div class="project-tags">
+        <span class="tag">Random Forest</span>
+        <span class="tag">LLaMA 3</span>
+        <span class="tag">Python</span>
+        <span class="tag">Scikit-learn</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://github.com/thar-26/ids-intrusion-detection" target="_blank" class="proj-link">View on GitHub</a>
+        <span class="proj-arrow">↗</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/thar-26/predictive-maintenance" target="_blank" class="project-card">
+      <div class="project-title">Predictive Maintenance</div>
+      <div class="project-desc">Benchmarked Isolation Forest, Random Forest, and DBSCAN on industrial sensor data. 92% precision on machine failure detection with Remaining Useful Life estimation.</div>
+      <div class="project-tags">
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">Time Series</span>
+        <span class="tag">Anomaly Detection</span>
+        <span class="tag">Pandas</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://github.com/thar-26/predictive-maintenance" target="_blank" class="proj-link">View on GitHub</a>
+        <span class="proj-arrow">↗</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-eyebrow">Capabilities</div>
+  <div class="section-title">Skills</div>
+  <div class="section-sub">What I work with day to day</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-category">AI & LLMs</div>
+      <div class="skill-items">
+        <span class="skill-pill">LangChain</span>
+        <span class="skill-pill">LangGraph</span>
+        <span class="skill-pill">RAG</span>
+        <span class="skill-pill">Agentic AI</span>
+        <span class="skill-pill">ChromaDB</span>
+        <span class="skill-pill">Prompt Engineering</span>
+        <span class="skill-pill">Vector Databases</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Machine Learning</div>
+      <div class="skill-items">
+        <span class="skill-pill">PyTorch</span>
+        <span class="skill-pill">TensorFlow</span>
+        <span class="skill-pill">Scikit-learn</span>
+        <span class="skill-pill">NLP</span>
+        <span class="skill-pill">Anomaly Detection</span>
+        <span class="skill-pill">Model Evaluation</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Data & Engineering</div>
+      <div class="skill-items">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Pandas</span>
+        <span class="skill-pill">NumPy</span>
+        <span class="skill-pill">Docker</span>
+        <span class="skill-pill">FastAPI</span>
+        <span class="skill-pill">Git</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Visualisation & Deployment</div>
+      <div class="skill-items">
+        <span class="skill-pill">Streamlit</span>
+        <span class="skill-pill">Plotly</span>
+        <span class="skill-pill">Matplotlib</span>
+        <span class="skill-pill">Vercel</span>
+        <span class="skill-pill">AWS basics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper">
+    <div class="section-eyebrow" style="text-align:center">Get in touch</div>
+    <div class="contact-title">Let's work<br>together</div>
+    <p class="contact-sub">Open to data science, ML engineering, and AI engineering roles. Based in Karlskrona, Sweden — open to relocation and remote opportunities.</p>
+    <div class="contact-links">
+      <a href="mailto:tharunlol15@gmail.com" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        tharunlol15@gmail.com
+      </a>
+      <a href="https://github.com/thar-26" target="_blank" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        github.com/thar-26
+      </a>
+      <a href="https://linkedin.com/in/tharun-kumar-marada" target="_blank" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-text">Tharun Kumar Marada · Karlskrona, Sweden</div>
+  <div class="footer-text">2026</div>
+</footer>
+
+</body>
+</html>
