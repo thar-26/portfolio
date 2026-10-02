@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Tharun Kumar Marada</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -56,7 +57,29 @@ body::before {
   z-index: 0;
 }
 
-/* spidey removed */
+/* ── SPIDER-MAN (decorative) ── */
+#spidey-wrap {
+  position: fixed;
+  top: 0; right: 36px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+#spidey-thread {
+  width: 1.5px;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.35), rgba(255,255,255,0.1));
+}
+#spidey-char {
+  transform-origin: top center;
+  animation: spidey-swing 4.5s ease-in-out infinite;
+}
+@keyframes spidey-swing {
+  0%,100% { transform: rotate(-7deg); }
+  50% { transform: rotate(7deg); }
+}
 
 /* ── NAV ── */
 nav {
@@ -776,6 +799,33 @@ footer {
 <!-- cursor glow -->
 <div id="cursor-glow"></div>
 
+<!-- SPIDER-MAN -->
+<div id="spidey-wrap">
+  <div id="spidey-thread"></div>
+  <div id="spidey-char">
+    <svg width="36" height="50" viewBox="0 0 38 52" fill="none">
+      <ellipse cx="19" cy="30" rx="10" ry="14" fill="#e81c1c"/>
+      <circle cx="19" cy="13" r="9" fill="#e81c1c"/>
+      <line x1="19" y1="4" x2="19" y2="22" stroke="#b00" stroke-width="0.5" opacity="0.6"/>
+      <line x1="10" y1="13" x2="28" y2="13" stroke="#b00" stroke-width="0.5" opacity="0.6"/>
+      <line x1="12.5" y1="6.5" x2="25.5" y2="19.5" stroke="#b00" stroke-width="0.5" opacity="0.6"/>
+      <line x1="25.5" y1="6.5" x2="12.5" y2="19.5" stroke="#b00" stroke-width="0.5" opacity="0.6"/>
+      <ellipse cx="15.5" cy="12" rx="3.5" ry="2.5" fill="white"/>
+      <ellipse cx="22.5" cy="12" rx="3.5" ry="2.5" fill="white"/>
+      <ellipse cx="15.5" cy="12" rx="2.4" ry="1.7" fill="#cce8ff"/>
+      <ellipse cx="22.5" cy="12" rx="2.4" ry="1.7" fill="#cce8ff"/>
+      <path d="M 9 24 Q 3 20 2 30" stroke="#e81c1c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <path d="M 29 24 Q 35 20 36 30" stroke="#e81c1c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <path d="M 13 43 Q 8 48 6 52" stroke="#1a1aff" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <path d="M 25 43 Q 30 48 32 52" stroke="#1a1aff" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <path d="M 9 26 Q 19 22 29 26" stroke="#b00" stroke-width="0.5" opacity="0.5" fill="none"/>
+      <path d="M 9 32 Q 19 28 29 32" stroke="#b00" stroke-width="0.5" opacity="0.5" fill="none"/>
+      <path d="M 10 38 Q 19 34 28 38" stroke="#b00" stroke-width="0.5" opacity="0.5" fill="none"/>
+      <line x1="19" y1="18" x2="19" y2="44" stroke="#b00" stroke-width="0.5" opacity="0.5"/>
+    </svg>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#home" class="nav-logo">Tharun<span>.</span></a>
@@ -1308,3 +1358,5 @@ form.addEventListener('submit', async e => {
   requestAnimationFrame(draw);
 })();
 </script>
+
+</body></html>
