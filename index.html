@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Tharun Kumar Marada</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -861,7 +860,7 @@ footer {
       <div class="stat-label">Internships</div>
     </div>
     <div>
-      <div class="stat-num">6</div>
+      <div class="stat-num">8</div>
       <div class="stat-label">Projects built, more to come</div>
     </div>
   </div>
@@ -1009,6 +1008,51 @@ footer {
       </div>
     </div>
 
+    <div class="project-card reveal" onclick="toggleProject(this)"
+         data-github="https://github.com/thar-26/elpris-forecast">
+      <div class="featured-badge">Live</div>
+      <div class="project-title">Swedish Electricity Price Forecast</div>
+      <div class="project-teaser">Daily forecast of day-ahead electricity prices across all four Swedish price zones, with a live public track record updated every morning.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">SQLite</span>
+      </div>
+      <div class="project-hint"><span>Details</span><span class="hint-arrow">↓</span></div>
+      <div class="project-detail">
+        <div class="detail-divider"></div>
+        <ul>
+          <li>Fetches hourly prices from a public API, validates and stores them in SQLite, then runs day-by-day backtesting over 180 days; ridge regression cut forecast error 12–15% vs. the same-hour-yesterday baseline across all four zones</li>
+          <li>Runs on a daily GitHub Actions schedule, scores previous forecasts automatically, and publishes results to GitHub Pages — a transparent, live track record of model performance</li>
+          <li>Forecast service packaged as a FastAPI app containerised with Docker; plain SVG/HTML output with no chart library dependency</li>
+        </ul>
+        <a href="https://github.com/thar-26/elpris-forecast" target="_blank" rel="noopener" class="github-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub →
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onclick="toggleProject(this)"
+         data-github="https://github.com/thar-26/vehicle-ecu-sim">
+      <div class="project-title">Vehicle ECU Simulator</div>
+      <div class="project-teaser">C++17/C system simulating core ECU patterns: table-driven state machine, signal router, safety monitors, and a watchdog HAL. 28 GoogleTest cases, CI on every commit.</div>
+      <div class="project-tags">
+        <span class="tag">C++17</span><span class="tag">C</span><span class="tag">CMake</span><span class="tag">GoogleTest</span><span class="tag">GitHub Actions</span>
+      </div>
+      <div class="project-hint"><span>Details</span><span class="hint-arrow">↓</span></div>
+      <div class="project-detail">
+        <div class="detail-divider"></div>
+        <ul>
+          <li>FSM covers Off, Booting, Running, Degraded, and ShuttingDown states; rejects invalid transitions and logs every attempt; signal router dispatches to multiple consumers via interfaces, making sources (CAN adapters, replay files, test doubles) fully swappable</li>
+          <li>Safety monitor runs sensor plausibility checks (flags sensors that disagree beyond tolerance) and signal timeout checks each cycle; plain-C watchdog HAL wrapped in an RAII C++ class demonstrating C/C++ interop</li>
+          <li>28 GoogleTest cases, CMake build with warnings as errors, GitHub Actions CI — built to learn and demonstrate automotive embedded patterns, with the README honest about scope</li>
+        </ul>
+        <a href="https://github.com/thar-26/vehicle-ecu-sim" target="_blank" rel="noopener" class="github-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub →
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1071,7 +1115,7 @@ footer {
       <div class="timeline-dot"></div>
       <div class="timeline-header" onclick="toggleTimeline(this.closest('.timeline-item'))">
         <div>
-          <div class="timeline-role">Machine Learning Intern</div>
+          <div class="timeline-role">Full Stack Python Intern</div>
           <div class="timeline-co">BIST Technologies</div>
         </div>
         <span class="timeline-date">Summer 2025</span>
@@ -1358,5 +1402,3 @@ form.addEventListener('submit', async e => {
   requestAnimationFrame(draw);
 })();
 </script>
-
-</body></html>
