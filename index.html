@@ -856,11 +856,11 @@ footer {
   </div>
   <div class="hero-stats">
     <div>
-      <div class="stat-num">2</div>
+      <div class="stat-num">3</div>
       <div class="stat-label">Internships</div>
     </div>
     <div>
-      <div class="stat-num">8</div>
+      <div class="stat-num">9</div>
       <div class="stat-label">Projects built, more to come</div>
     </div>
   </div>
@@ -877,6 +877,29 @@ footer {
   </div>
 
   <div class="projects-grid">
+
+    <div class="project-card reveal" onclick="toggleProject(this)"
+         data-github="https://github.com/thar-26/aws-eks-terraform-platform">
+      <div class="featured-badge">New</div>
+      <div class="project-title">AWS EKS Terraform Platform</div>
+      <div class="project-teaser">A Terraform-managed AWS platform: multi-AZ VPC, EKS cluster, ECR, KMS-encrypted logging and CloudWatch alerting. Deployed, failure-tested, then fully destroyed.</div>
+      <div class="project-tags">
+        <span class="tag">Terraform</span><span class="tag">AWS</span><span class="tag">EKS</span><span class="tag">Kubernetes</span><span class="tag">KMS</span><span class="tag">CloudWatch</span><span class="tag">GitHub Actions</span>
+      </div>
+      <div class="project-hint"><span>Details</span><span class="hint-arrow">↓</span></div>
+      <div class="project-detail">
+        <div class="detail-divider"></div>
+        <ul>
+          <li>Modular Terraform: multi-AZ VPC with public/private subnets and NAT, EKS managed node group, ECR with immutable tags, and S3 remote state with native locking</li>
+          <li>Secured with a rotating KMS key, least-privilege IAM, an SSM-only EC2 instance (no SSH) and an EKS endpoint limited to one admin CIDR; CloudWatch alarms, dashboard, SNS alerts and GitHub Actions CI with Checkov</li>
+          <li>Ran a failure drill (ImagePullBackOff), rolled back and wrote an RCA; worked around an SCP-blocked OIDC provider with Pod Identity; destroyed all 76 resources afterwards</li>
+        </ul>
+        <a href="https://github.com/thar-26/aws-eks-terraform-platform" target="_blank" rel="noopener" class="github-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub →
+        </a>
+      </div>
+    </div>
 
     <div class="project-card reveal" onclick="toggleProject(this)"
          data-github="https://github.com/thar-26/multi-agent-research">
@@ -1089,6 +1112,28 @@ footer {
   </div>
 
   <div class="timeline reveal">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header" onclick="toggleTimeline(this.closest('.timeline-item'))">
+        <div>
+          <div class="timeline-role">AI Product Engineer Intern</div>
+          <div class="timeline-co">Careerland AB</div>
+        </div>
+        <span class="timeline-date">Jan 2026 – Present</span>
+      </div>
+      <div class="timeline-body">
+        <ul>
+          <li>Build features for a tourism and corporate travel platform with React, Next.js and TypeScript, including customer dashboards and staff/admin interfaces</li>
+          <li>Integrate the frontend with REST APIs and backend services on Cloudflare Workers and Cloudflare D1</li>
+          <li>Contribute to AI-powered assistance, Google OAuth authentication, document management and automated email notifications</li>
+          <li>Investigate and resolve frontend, API and data issues to improve application reliability</li>
+        </ul>
+      </div>
+      <div class="timeline-toggle" onclick="toggleTimeline(this.closest('.timeline-item'))">
+        <span>Details</span><span class="t-arrow">↓</span>
+      </div>
+    </div>
+
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-header" onclick="toggleTimeline(this.closest('.timeline-item'))">
@@ -1313,7 +1358,7 @@ form.addEventListener('submit', async e => {
     { label:'AI & LLMs',       color:'#e81c1c', skills:['LangChain','LangGraph','RAG','Agentic AI','ChromaDB','Prompt Eng','Vector DBs','OpenAI API'] },
     { label:'Machine Learning', color:'#3b82f6', skills:['PyTorch','TensorFlow','Scikit-learn','XGBoost','SHAP','NLP','Anomaly Det','Model Eval'] },
     { label:'Data & Eng',       color:'#10b981', skills:['Python','SQL','Pandas','NumPy','FastAPI','Docker','Git','CI/CD'] },
-    { label:'Cloud & Deploy',   color:'#f59e0b', skills:['AWS EC2/S3','Azure ML','Streamlit','Plotly','Vercel','GitHub Actions'] },
+    { label:'Cloud & Deploy',   color:'#f59e0b', skills:['AWS EC2/S3','Terraform','Kubernetes','Azure ML','Streamlit','Plotly','Vercel','GitHub Actions'] },
   ];
   let nodes = [], mouse = { x:-9999, y:-9999 }, raf;
 
